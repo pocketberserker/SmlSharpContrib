@@ -1,0 +1,11 @@
+_require "basis.smi"
+_require "ParseResult.smi"
+
+structure InternalResult = struct
+  datatype 'a t =
+    Fail of string * string list * string
+    | Partial of (string -> 'a t)
+    | Done of string * 'a
+  val translate : 'a t -> 'a ParseResult.t
+end
+
