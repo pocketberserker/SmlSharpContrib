@@ -6,7 +6,8 @@ MODULES = \
 	ext/Std \
 	attoparsec/ParseResult \
 	attoparsec/State \
-	attoparsec/InternalResult
+	attoparsec/InternalResult \
+	attoparsec/Parser
 
 # C files
 C_MODULES = \

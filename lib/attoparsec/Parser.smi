@@ -1,0 +1,15 @@
+_require "basis.smi"
+_require "InternalResult.smi"
+
+structure Parser = struct
+
+  type s (= boxed)
+  type 'a Failure = s -> string list -> string -> 'a InternalResult.t
+  type ('a, 'b) Success = s -> 'a -> 'b InternalResult.t
+
+  val bind :
+    (s -> 'a Failure -> ('a, 'b) Success -> 'b InternalResult.t) ->
+    ('a -> (s -> 'b Failure -> ('b, 'c) Success -> 'c InternalResult.t)) ->
+    (s -> 'b Failure -> ('b, 'c) Success -> 'c InternalResult.t)
+
+end
