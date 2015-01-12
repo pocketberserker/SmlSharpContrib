@@ -1,0 +1,6 @@
+_require "basis.smi"
+
+structure State = struct
+  val completed : ['a#{Input:string,Pos:int,Complete:bool}. 'a -> 'a]
+end
+
