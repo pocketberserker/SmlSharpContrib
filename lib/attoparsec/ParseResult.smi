@@ -1,0 +1,12 @@
+_require "basis.smi"
+
+structure ParseResult = struct
+  datatype 'a t =
+    Fail of string * string list * string
+    | Partial of (string -> 'a t)
+    | Done of string * 'a
+  val map : 'a t -> ('a -> 'b) -> 'b t
+  val feed : 'a t -> string -> 'a t
+  val done : 'a t -> 'a option
+end
+

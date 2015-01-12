@@ -3,7 +3,8 @@
 # ------------------------------------------------------------
 # SML files
 MODULES = \
-	ext/Std
+	ext/Std \
+	attoparsec/ParseResult
 
 # C files
 C_MODULES = \
